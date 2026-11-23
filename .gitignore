@@ -1,0 +1,9 @@
+.vscode/
+.agents/
+.claude/
+
+__pycache__/
+*.pyc
+
+.venv/
+.env
