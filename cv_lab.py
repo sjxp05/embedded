@@ -43,9 +43,9 @@ import numpy as np
 # ================= 기능 켜기 / 끄기 =================
 # 끄려면 그 줄 앞에 # 를 붙여 주석 처리 (아두이노 쪽 기능은 motor_serial.ino 맨 위에서)
 FEATURES = [
-    # "three_points",  # [추가 2] 3개 지점에서 선 찾기 (끄면 가운데 1지점만)
+    "three_points",  # [추가 2] 3개 지점에서 선 찾기 (끄면 가운데 1지점만)
     # "crosswalk",  # [추가 2] 횡단보도에서 CROSSWALK_STOP_SEC 동안 정지
-    # "pid",  # [추가 3] PID 제어 (끄면 기존 PD: pd_steer)
+    "pid",  # [추가 3] PID 제어 (끄면 기존 PD: pd_steer)
     # "arduino_status",  # [추가 1] 아두이노가 보낸 온도 · 속도 · 배터리를 웹 화면에 표시
 ]
 ALL_FEATURES = ("three_points", "crosswalk", "pid", "arduino_status")
@@ -73,8 +73,8 @@ ROTATE_180 = True  # 카메라를 거꾸로 달았으면 True (화면이 뒤집�
 PORT = 8000
 SETTINGS = {  # 웹 화면 슬라이더로 바꾸는 값 (처음 값)
     "thresh": 80,  # 밝기 문턱: 이보다 어두우면 선
-    "roi_top": 0.45,  # 위쪽에서 버리는 비율
-    "look": 0.6,  # 살펴볼 띠 위치 (자른 영역 안, 0 = 위, 1 = 아래)
+    "roi_top": 0.1,  # 위쪽에서 버리는 비율
+    "look": 0.5,  # 살펴볼 띠 위치 (자른 영역 안, 0 = 위, 1 = 아래)
     "kp": 1.0,  # P: 벗어난 만큼 꺾기
     "ki": 0.1,  # I: 한쪽으로 계속 치우치는 것 보정 (0 = 끄기)
     "kd": 0.5,  # D: 좌우로 흔들리는 것 억제
@@ -94,7 +94,7 @@ D_FILTER_SEC = (
 )
 
 # --- 3개 지점 ---
-LOOK_OFFSETS = (-0.25, 0.0, 0.25)  # 슬라이더 look 기준 위치 (먼 곳, 가운데, 가까운 곳)
+LOOK_OFFSETS = (-0.30, 0.0, 0.30)  # 슬라이더 look 기준 위치 (먼 곳, 가운데, 가까운 곳)
 LOOK_WEIGHTS = (1.0, 2.0, 1.0)  # 조향을 정할 때 각 지점의 비중
 
 # --- 횡단보도 ---
